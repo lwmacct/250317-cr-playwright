@@ -20,3 +20,7 @@ includes:
   go:
     taskfile: .taskfile/go.yml
     optional: true
+
+  cr:
+    taskfile: .taskfile/cr.yml
+    optional: true

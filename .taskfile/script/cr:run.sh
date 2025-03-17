@@ -12,7 +12,7 @@ __main() {
     fi
   }
 
-  _apps_name="250317-playwright"
+  _apps_name="${_apps_name:-"250317-playwright"}"
   _apps_data="/data/$_apps_name"
   cat <<EOF | docker compose -p "$_apps_name" -f - up -d --remove-orphans
 services:

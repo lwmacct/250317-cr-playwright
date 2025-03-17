@@ -1,0 +1,18 @@
+version: "3"
+
+vars:
+  _apps_name: "250317-playwright"
+
+tasks:
+  run:
+    desc: "运行 Docker 容器"
+    cmds:
+      - |
+        bash .taskfile/script/cr:run.sh
+
+  run:again:
+    desc: "删除并重新运行 Docker 容器"
+    cmds:
+      - |
+        docker compose -p "{{._apps_name}}" down
+        bash .taskfile/script/cr:run.sh
