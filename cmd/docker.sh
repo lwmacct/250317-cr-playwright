@@ -24,7 +24,6 @@ services:
     volumes:
       - $_apps_data:/apps/data
     environment:
-      - WAIT=0
       - TZ=Asia/Shanghai
       - CDP_PORT=50011
       - DISPLAY=:50010
@@ -46,7 +45,7 @@ services:
         tmux new-session -d -s xvfb "bash /apps/repo/cmd/tmux-xvfb.sh"
         tmux new-session -d -s x11vnc "bash /apps/repo/cmd/tmux-x11vnc.sh"
         /apps/venv/bin/python /apps/repo/cmd/main.py
-        tail -f /dev/null
+        # tail -f /dev/null
 EOF
 }
 
