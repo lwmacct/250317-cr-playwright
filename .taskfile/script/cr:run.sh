@@ -44,7 +44,7 @@ services:
         cd /apps/repo || exit 1
         bash /apps/repo/cmd/tmux.sh
         /apps/venv/bin/python /apps/repo/cmd/main.py
-        tail -f /dev/null
+        # tail -f /dev/null
 EOF
 }
 
