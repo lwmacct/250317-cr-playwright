@@ -42,10 +42,9 @@ services:
           git clone https://github.com/lwmacct/250317-cr-playwright.git /apps/repo
         fi
         cd /apps/repo || exit 1
-        tmux new-session -d -s xvfb "bash /apps/repo/cmd/tmux-xvfb.sh"
-        tmux new-session -d -s x11vnc "bash /apps/repo/cmd/tmux-x11vnc.sh"
+        bash /apps/repo/cmd/tmux.sh
         /apps/venv/bin/python /apps/repo/cmd/main.py
-        # tail -f /dev/null
+        tail -f /dev/null
 EOF
 }
 

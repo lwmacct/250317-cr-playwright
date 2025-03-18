@@ -25,13 +25,13 @@ __main() {
   {
     FUNC_NAME=__declare_xvfb # 这里需要修改为你的方法名
     FUNC_BASE64="$(declare -f $FUNC_NAME | sed "\$a $FUNC_NAME" | base64 -w0)"
-    echo "tmux new-session -d -s $FUNC_NAME -e FUNC_BASE64=$FUNC_BASE64 'bash <(base64 -d <<<\$FUNC_BASE64)'"
+    echo "tmux new-session -d -s $FUNC_NAME -e FUNC_BASE64=$FUNC_BASE64 'bash <(base64 -d <<<\$FUNC_BASE64)'" | bash
   }
 
   {
     FUNC_NAME=__declare_x11vnc # 这里需要修改为你的方法名
     FUNC_BASE64="$(declare -f $FUNC_NAME | sed "\$a $FUNC_NAME" | base64 -w0)"
-    echo "tmux new-session -d -s $FUNC_NAME -e FUNC_BASE64=$FUNC_BASE64 'bash <(base64 -d <<<\$FUNC_BASE64)'"
+    echo "tmux new-session -d -s $FUNC_NAME -e FUNC_BASE64=$FUNC_BASE64 'bash <(base64 -d <<<\$FUNC_BASE64)'" | bash
   }
 
 }
