@@ -25,9 +25,9 @@ services:
       - $_apps_data:/apps/data
     environment:
       - TZ=Asia/Shanghai
+      - CDP_PORT=50011
       - DISPLAY=:50010
-      - CDP_PORT=50010
-      - VNC_PORT=50011
+      - VNC_PORT=50010
       - VNC_PASSWORD=bad_password
       - VNC_RESOLUTION=1200x1000
       - VNC_DEPTH=24
