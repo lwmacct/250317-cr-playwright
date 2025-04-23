@@ -34,11 +34,10 @@ with sync_playwright() as p:
             height = int(vnc_resolution.split("x")[1])-20
         else:
             width = 1200
-            height = 980
+            height = 1000
 
     # 启动浏览器
     browser = p.chromium.launch_persistent_context(
-        #  no_viewport=True,  # 允许浏览器调整窗口大小
         viewport={"width": width, "height": height},
         user_data_dir=user_data_dir,
         headless=False,
@@ -49,7 +48,6 @@ with sync_playwright() as p:
             "--disable-gpu",
             "--use-fake-device-for-media-stream",
             "--use-fake-ui-for-media-stream",
-            # "--window-size=" + str(width) + "," + str(height),  # 设置初始窗口大小
         ],
         # 关键指纹修改参数
         ignore_default_args=["--enable-automation"],
