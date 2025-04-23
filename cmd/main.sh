@@ -16,7 +16,7 @@ __x11vnc() {
 
 __playwright() {
   :
-  /apps/venv/bin/python /apps/repo/cmd/main.py
+  exec /apps/venv/bin/python /apps/repo/cmd/main.py
 }
 
 __main() {
