@@ -44,6 +44,7 @@ with sync_playwright() as p:
         proxy={"server": proxy_server},
         args=[
             "--remote-debugging-port=" + str(cdp_port),
+            "--remote-debugging-address=0.0.0.0",
             "--disable-blink-features=AutomationControlled",  # 禁用自动化控制标识
             "--disable-gpu",
             "--use-fake-device-for-media-stream",
