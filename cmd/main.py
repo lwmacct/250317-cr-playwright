@@ -31,7 +31,7 @@ with sync_playwright() as p:
         vnc_resolution = os.getenv("VNC_RESOLUTION")
         if vnc_resolution.find("x") != -1:
             width = int(vnc_resolution.split("x")[0])-20
-            height = int(vnc_resolution.split("x")[1])-5
+            height = int(vnc_resolution.split("x")[1])
         else:
             width = 1200
             height = 1000
