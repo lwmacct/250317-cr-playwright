@@ -29,7 +29,7 @@ services:
       - DISPLAY=:50010
       - VNC_PORT=50010
       - VNC_PASSWORD=bad_password
-      - VNC_RESOLUTION=1200x980
+      - VNC_RESOLUTION=1200x1000
       - VNC_DEPTH=24
       - PROXY_SERVER=socks5://0.0.0.0:7890
       - USER_AGENT=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
