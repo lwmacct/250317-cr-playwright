@@ -4,7 +4,7 @@ __main() {
 
   {
     # 镜像准备
-    _image1="ghcr.io/lwmacct/250317-cr-playwright:v1.50.0-t2503171"
+    _image1="ghcr.io/lwmacct/250317-cr-playwright:v1.51.0-t2504230"
     _image2="$(docker images -q $_image1)"
     if [[ "$_image2" == "" ]]; then
       docker pull $_image1
@@ -42,7 +42,7 @@ services:
           git clone https://github.com/lwmacct/250317-cr-playwright.git /apps/repo
         fi
         cd /apps/repo || exit 1
-        bash /apps/repo/cmd/tmux.sh
+        bash /apps/repo/cmd/tmux.sh main
         /apps/venv/bin/python /apps/repo/cmd/main.py
         # tail -f /dev/null
 EOF
