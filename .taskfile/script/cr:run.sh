@@ -43,8 +43,6 @@ services:
         fi
         cd /apps/repo || exit 1
         bash /apps/repo/cmd/main.sh main
-        /apps/venv/bin/python /apps/repo/cmd/main.py
-        # tail -f /dev/null
 EOF
 }
 

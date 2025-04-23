@@ -14,12 +14,17 @@ __x11vnc() {
   exec x11vnc -display "$DISPLAY" -passwd "$VNC_PASSWORD" -forever -shared -auth /tmp/xvfb -rfbport "$VNC_PORT"
 }
 
+__playwright() {
+  :
+  /apps/venv/bin/python /apps/repo/cmd/main.py
+}
+
 __main() {
   echo "Running main with params: $*"
   tmux new-session -d -s "tmux" "tail -f /dev/null"
   {
     while true; do
-      for _app in xvfb x11vnc; do
+      for _app in xvfb x11vnc playwright; do
         echo "$_app"
         tmux new-session -d -s "$_app" "bash /apps/repo/cmd/main.sh $_app"
       done
@@ -36,17 +41,19 @@ Available commands:
   main       主程序入口
   xvfb       启动 xvfb
   x11vnc     启动 x11vnc
+  playwright 启动 playwright
   help       显示帮助信息
 
 Example:
   $0 main
   $0 xvfb
   $0 x11vnc
+  $0 playwright
 EOF
 }
 
 case "$1" in
-main | xvfb | x11vnc)
+main | xvfb | x11vnc | playwright)
   func="__${1}"
   shift # 移除已解析的命令参数
   $func "$@"
