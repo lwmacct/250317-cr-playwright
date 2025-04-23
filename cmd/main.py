@@ -31,16 +31,16 @@ with sync_playwright() as p:
         vnc_resolution = os.getenv("VNC_RESOLUTION")
         if vnc_resolution.find("x") != -1:
             width = int(vnc_resolution.split("x")[0])-20
-            height = int(vnc_resolution.split("x")[1])
+            height = int(vnc_resolution.split("x")[1])-20
         else:
             width = 1200
             height = 1000
 
     # 启动浏览器
     browser = p.chromium.launch_persistent_context(
-        viewport={"width": width, "height": height},
         user_data_dir=user_data_dir,
         headless=False,
+        no_viewport=True,  # 允许浏览器调整窗口大小
         proxy={"server": proxy_server},
         args=[
             "--remote-debugging-port=" + str(cdp_port),
@@ -48,6 +48,7 @@ with sync_playwright() as p:
             "--disable-gpu",
             "--use-fake-device-for-media-stream",
             "--use-fake-ui-for-media-stream",
+            "--window-size=" + str(width) + "," + str(height),  # 设置初始窗口大小
         ],
         # 关键指纹修改参数
         ignore_default_args=["--enable-automation"],
