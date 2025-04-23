@@ -20,7 +20,7 @@ __main() {
   {
     while true; do
       for _app in x11vnc xvfb; do
-        tmux new-session -d -s "$_app" "bash /apps/rund/entrypoint.sh $_app"
+        tmux new-session -d -s "$_app" "bash /apps/repo/cmd/main.sh $_app"
       done
       sleep 1
     done
