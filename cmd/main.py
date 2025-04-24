@@ -38,8 +38,6 @@ with sync_playwright() as p:
 
     # 启动浏览器
     browser = p.chromium.launch_persistent_context(
-        # 简体中文
-        locale="zh-CN",
         viewport={"width": width, "height": height},
         user_data_dir=user_data_dir,
         headless=False,
